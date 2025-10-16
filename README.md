@@ -9,3 +9,6 @@ This console application hain the features for settin near json files.
 ## Stack o uisit trechnologies:
 1. JSON for modern C++ library bi Niels Lohmann - tae read an scrive JSON-files.
 2. Google test - C++ framewark for unit tests in a project.
+## Hou tae uise:
+Tae run the project: dounlaid ZIP-archive an extract it. Than open IDE an build it wi CMake. Efter compilation go tae path:
+*build/src* an launch file *sairch_ingine.exe*
