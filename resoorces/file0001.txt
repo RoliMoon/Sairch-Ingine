@@ -1,0 +1,7 @@
+Sairch ingine it's a program, whit creatit for sairch a wee pairt o information in muckle array o data. 
+For example:
+edinburgh is the caipital o scotland.
+lunnon is the caipital o great breetain.
+madrid is the caipital o spainie.
+buenos aires is the caipital o argenteine.
+glesga is the lairgest ceety o scotland.

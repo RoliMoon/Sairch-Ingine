@@ -1,0 +1,214 @@
+A
+wrd001 = aa
+wrd002 = aboot
+wrd003 = afore
+wrd004 = ainlie
+wrd005 = aiple
+wrd006 = an
+wrd007 = ane
+wrd008 = aprile
+wrd009 = argenteine
+wrd010 = atween
+wrd011 = auld
+wrd012 = aye
+B
+wrd013 = beuk
+wrd014 = beir
+wrd015 = bi
+wrd016 = bit
+wrd017 = blae
+wrd018 = braw
+wrd018 = breetain
+wrd019 = breid
+wrd020 = bricht
+wrd021 = broun
+C
+wrd022 = caipital
+wrd023 = can
+wrd024 = cannae
+wrd025 = ceety
+wrd026 = celtic
+wrd027 = centurie
+wrd028 = chaumer
+wrd029 = chaynge
+wrd030 = cless
+wrd031 = clood
+wrd032 = coont
+wrd033 = cou
+D
+wrd034 = dae
+wrd035 = dane
+wrd036 = day
+wrd037 = decade
+wrd038 = deegit
+wrd039 = dictionar
+wrd040 = dreich
+E
+wrd041 = edinburgh
+wrd042 = ee
+wrd043 = eeror
+wrd044 = efter
+wrd045 = eicht
+wrd046 = eleiven
+wrd047 = enterteenment
+F
+wrd048 = fae
+wrd049 = februar
+wrd050 = ficht
+wrd051 = five
+wrd052 = flouer
+wrd053 = follae
+wrd054 = foond
+wrd055 = fover
+wrd056 = fowk
+G
+wrd057 = gairden
+wrd058 = gaelic
+wrd059 = gey
+wrd060 = glesga
+wrd061 = gless
+wrd062 = gowd
+wrd063 = gray
+wrd064 = guid
+H
+wrd065 = hae
+wrd066 = hanae
+wrd067 = hairst
+wrd068 = heicht
+wrd069 = heid
+wrd070 = hich
+wrd071 = hoose
+wrd072 = hunder
+wrd073 = hullo
+I
+wrd074 = ingine
+wrd075 = inglis
+wrd076 = ither
+J
+wrd077 = januar
+wrd078 = juin
+wrd079 = julie
+K
+wrd080 = ken
+wrd081 = kinrick
+wrd082 = kintra
+wrd083 = kye
+L
+wrd084 = lae
+wrd085 = laid
+wrd086 = lairge
+wrd087 = laitin
+wrd088 = law
+wrd089 = leid
+wrd090 = lest
+wrd091 = licht
+wrd092 = lift
+wrd093 = loch
+wrd094 = lunnon
+M
+wrd095 = madrid
+wrd096 = main
+wrd097 = mair
+wrd098 = mairch
+wrd099 = maist
+wrd100 = mak
+wrd101 = mey
+wrd102 = micht
+wrd103 = milk
+wrd104 = millenium
+wrd105 = mine
+wrd106 = mirk
+wrd107 = month
+wrd108 = muckle
+wrd109 = muin
+wrd110 = muisic
+wrd111 = mukker
+N
+wrd112 = nae
+wrd113 = nicht
+wrd114 = nine
+wrd115 = nummer
+O
+wrd116 = o
+wrd117 = offeecial
+wrd118 = ootput
+wrd119 = oranger
+P
+wrd120 = pairt
+wrd121 = pincil
+wrd122 = pleise
+wrd123 = poseetion
+wrd124 = prentin
+wrd125 = purpie
+R
+wrd126 = rake
+wrd127 = reid
+wrd128 = richt
+wrd129 = roushian
+S
+wrd130 = sae
+wrd131 = sairch
+wrd132 = saive
+wrd133 = sax
+wrd134 = scots
+wrd135 = scottis
+wrd136 = scrive
+wrd137 = seembol
+wrd138 = seestem
+wrd139 = seiven
+wrd140 = siller
+wrd141 = simmer
+wrd142 = soond
+wrd143 = soorce
+wrd144 = spainie
+wrd145 = spellin
+wrd146 = speirins
+wrd147 = stane
+wrd148 = stap
+wrd149 = starn
+wrd150 = storie
+T
+wrd151 = tae
+wrd152 = tak
+wrd153 = thair
+wrd154 = tham
+wrd155 = than
+wrd156 = thare
+wrd157 = thaur
+wrd158 = thay
+wrd159 = the
+wrd160 = third
+wrd161 = this
+wrd162 = three
+wrd163 = thoosand
+wrd164 = til
+wrd165 = tin
+wrd166 = tree
+wrd167 = twa
+wrd168 = twal
+U
+wrd169 = uise
+wrd170 = uiser
+wrd171 = unbekent
+wrd172 = unitit
+V
+wrd173 = vi
+W
+wrd174 = walcome
+wrd175 = waird
+wrd176 = ware
+wrd177 = warld
+wrd178 = wastern
+wrd179 = watter
+wrd180 = wee
+wrd181 = week
+wrd182 = whan
+wrd183 = whaur
+wrd184 = whit
+wrd185 = wi
+Y
+wrd186 = yellae
+wrd187 = ye
+wrd188 = yer
+wrd189 = yeir
+wrd190 = yird

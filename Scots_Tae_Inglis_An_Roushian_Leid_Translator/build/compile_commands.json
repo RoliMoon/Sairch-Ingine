@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/dev/SairchIngine/Scots_Tae_Inglis_an_Rousian_Leid_Translator/build/src",
+  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/Translator.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Translator.dir\\main.cpp.obj -c C:\\dev\\SairchIngine\\Scots_Tae_Inglis_an_Rousian_Leid_Translator\\src\\main.cpp",
+  "file": "C:/dev/SairchIngine/Scots_Tae_Inglis_an_Rousian_Leid_Translator/src/main.cpp",
+  "output": "src/CMakeFiles/Translator.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/dev/SairchIngine/Scots_Tae_Inglis_an_Rousian_Leid_Translator/build/src",
+  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/Translator.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Translator.dir\\dictionarmanagement.cpp.obj -c C:\\dev\\SairchIngine\\Scots_Tae_Inglis_an_Rousian_Leid_Translator\\src\\dictionarmanagement.cpp",
+  "file": "C:/dev/SairchIngine/Scots_Tae_Inglis_an_Rousian_Leid_Translator/src/dictionarmanagement.cpp",
+  "output": "src/CMakeFiles/Translator.dir/dictionarmanagement.cpp.obj"
+},
+{
+  "directory": "C:/dev/SairchIngine/Scots_Tae_Inglis_an_Rousian_Leid_Translator/build/src",
+  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/Translator.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Translator.dir\\translator.cpp.obj -c C:\\dev\\SairchIngine\\Scots_Tae_Inglis_an_Rousian_Leid_Translator\\src\\translator.cpp",
+  "file": "C:/dev/SairchIngine/Scots_Tae_Inglis_an_Rousian_Leid_Translator/src/translator.cpp",
+  "output": "src/CMakeFiles/Translator.dir/translator.cpp.obj"
+}
+]
