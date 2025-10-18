@@ -1,5 +1,5 @@
 SCO
-# Sairch Ingine
+# Sairch ingine
 
 Hullo abody. A present mine graduation study project o the C++ developer coorse fae SkillBox online schuil.
 
@@ -19,7 +19,7 @@ If a program cannae find a configuration or requests, necessary:
  - paste copied files in “src” faulder whit locate in “build” directorie.
 
 ING
-# Search Engine
+# Search engine
 
 Hello everyone. I present my graduation study project o the C++ developer course from SkillBox online school.
 
@@ -38,8 +38,8 @@ If a program cannot find a configuration or requests, necessary:
  - copy “config.json”, “requests.json” and “answers.json” from working “src” folder;
  - paste copied files in “src” folder what locate in “build” directory.
 
-RUS
-# ПОИСКОВЫЙ ДВИЖОК
+ROU
+# Поисковый движок
 
 Всем здравствуйте. Это мой итоговый учебный проект курса C++ разработчика от онлайн школы SkillBox.
 
