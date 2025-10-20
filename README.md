@@ -65,7 +65,7 @@ Hello everyone. I present my graduation study project o the C++ developer course
 It's a search engine. This program was created for performance a tasks related with searching of documents in a database by keywords.
 This is a console application, whith having the features for setting near json files.
 
-## Stack o uisit trechnologies:
+## Stack of used trechnologies:
 - JSON for modern C++ library by Niels Lohmann - to read and write JSON-files.
 - Google test - C++ framework for unit tests in a project.
    
