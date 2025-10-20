@@ -22,6 +22,7 @@ Tae run the project performs neist steps:
    - files main be in "*.txt" format;
 5. Scrive the paths tae files in the project configuration (file "config.json"):
    This file main hae neist structur:
+   
    {
       "config": {
          "name": "Yet anither unbekent indexer",
