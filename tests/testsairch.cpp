@@ -27,7 +27,7 @@ TEST(TestCaseSearchServer, TestSimple) {
 
     SairchServer srv(idx);
 
-    std::vector<vector<RelativeIndex>> result = srv.sairch(request);
+    std::vector<vector<RelativeIndex>> result = srv.search(request);
 
     ASSERT_EQ(result, expected);
 }
@@ -71,7 +71,8 @@ TEST(TestCaseSearchServer, TestTop5) {
     
     SairchServer srv(idx);
     
-    std::vector<vector<RelativeIndex>> result = srv.sairch(request);
+    std::vector<vector<RelativeIndex>> result = srv.search(request);
 
     ASSERT_EQ(result, expected);
+
 }
