@@ -14,7 +14,7 @@ void TestInvertedIndexFunctionality(
     idx.update_document_base(docs);
     
     for(auto& request : requests) {
-        vector<Entry> waird_coont = idx.get_word_count(request);
+        vector<Entry> word_count = idx.get_word_count(request);
         result.push_back(word_count);
     }
     ASSERT_EQ(result, expected);
@@ -72,3 +72,4 @@ TEST(TestCaseInvertedIndex, TestInvertedIndexMissingWord) {
     TestInvertedIndexFunctionality(docs, requests, expected);
 
 }
+
