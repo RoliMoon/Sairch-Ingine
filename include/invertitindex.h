@@ -13,24 +13,25 @@
 == This cless responsible for indexin.    ==
 ==========================================*/
 
-// Maist often uisit elements ainlie.
+// Most often used elements only.
 using std::string;
 using std::vector;
 
 struct Entry {
-    size_t doc_id, coont;
+    size_t doc_id, count;
 
-    bool operator == (const Entry& ither) const {
-        return (doc_id == ither.doc_id && coont == ither.coont);
+    bool operator == (const Entry& other) const {
+        return (doc_id == other.doc_id && count == other.count);
     }
 };
 
-class InvertitIndex {
+class InvertedIndex {
 public:
     InvertitIndex() = default;
     void update_document_base(vector<string> input_docs);
-    vector<Entry> get_waird_coont(const string& waird);
+    vector<Entry> get_word_coont(const string& word);
 private:
     vector<string> docs;
-    std::map<string, vector<Entry>> freq_dictionar;
+    std::map<string, vector<Entry>> freq_dictionary;
+
 };
