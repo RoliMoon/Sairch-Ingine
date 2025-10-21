@@ -7,33 +7,30 @@
 == File: ConverterJSON.cpp                ==
 == Creatit bi RoliMoon.                   ==
 == Date: 15/08/2025                       ==
-== This cless responsible for json files. ==
+== This class responsible for json files. ==
 ==========================================*/
 
-// Maist often uisit elements ainlie.
+// Most often used elements only.
 using std::cout;
 using std::endl;
 using std::cerr;
 using std::ifstream;
 
-// Paths initialisin.
-ConverterJson::ConverterJson() {}
-
 vector<string> ConverterJson::get_text_documents() {
     try {
     ifstream read_json_here(cpath);
-  // Try tae open config.json, an if it cannae openit successfully - return empty array in place o that.
+  // Try to open config.json, and if it cannot opened successfully - return empty array instead of that.
     if (!read_json_here.is_open()) {
         cerr << "Cannae open config.json.\n";
         return {};
     }
-        nlohmann::json config_dictionar;
-        read_json_here >> config_dictionar;
-      // Check for aa necessary fields.
-        if (config_dictionar.find("config") == config_dictionar.end()) {
-            throw std::runtime_error("Missin ''config'' object in ''config.json''.\n");
+        nlohmann::json config_dictionary;
+        read_json_here >> config_dictionary;
+      // Check for all necessary fields.
+        if (config_dictionary.find("config") == config_dictionary.end()) {
+            throw std::runtime_error("Missing ''config'' object in ''config.json''.\n");
         }
-        const auto& config = config_dictionar["config"];
+        const auto& config = config_dictionary["config"];
 
         if (!(config.find("name") != config.end() &&
             config["name"].is_string() &&
@@ -41,17 +38,17 @@ vector<string> ConverterJson::get_text_documents() {
             config["version"].is_string() &&
             config.find("max_responses") != config.end() &&
             config["max_responses"].is_number())) {
-            throw std::runtime_error("Missin necessary fields in ''config.json''.\n");
+            throw std::runtime_error("Missing necessary fields in ''config.json''.\n");
         }
-        if (config_dictionar.find("files") == config_dictionar.end() ||
-            !config_dictionar["files"].is_array()) {
-            throw std::runtime_error("Missin or invalid ''files'' array.\n");
+        if (config_dictionary.find("files") == config_dictionary.end() ||
+            !config_dictionary["files"].is_array()) {
+            throw std::runtime_error("Missing or invalid ''files'' array.\n");
         }
-      // Fill the configuration structur.
+      // Fill the configuration structure.
         cfg.name = config["name"];
         cfg.version = config["version"];
         cfg.max_responses = config["max_responses"];
-        for (const auto& file : config_dictionar["files"]) {
+        for (const auto& file : config_dictionary["files"]) {
             if (file.is_string()) {
                 cfg.files.push_back(file.get<string>());
             } else {
@@ -61,9 +58,9 @@ vector<string> ConverterJson::get_text_documents() {
     
       // Ootput.
         cout << cfg.name << " version: " << cfg.version << endl;
-        cout << "Walcome, dear uiser!\n";
-        cout << "Limit o responses per ain request: " << cfg.max_responses << endl;
-        cout << "Foond files: " << cfg.files.size() << endl;
+        cout << "Welcome, dear user!\n";
+        cout << "Limit o responses per one request: " << cfg.max_responses << endl;
+        cout << "Found files: " << cfg.files.size() << endl;
         read_json_here.close();
 
     } catch (nlohmann::json::exception& jex) {
@@ -83,7 +80,7 @@ int ConverterJson::get_responses_limit() {
 vector<string> ConverterJson::get_requests() {
     try {
     ifstream read_json_here(rpath);
-  // Try tae open requests.json, an if it cannae openit successfully - return empty array in place o that.
+  // Try tae open requests.json, an if it cannot opened successfully - return empty array instead of that.
     if (!read_json_here.is_open()) {
         cerr << "Cannae open requests.json.\n";
         return {};
@@ -92,14 +89,14 @@ vector<string> ConverterJson::get_requests() {
         read_json_here >> requests_reg;
         if (!(requests_reg.find("requests") != requests_reg.end() &&
             requests_reg["requests"].is_array())) {
-        throw std::runtime_error("Missin necessary fields in requests.json\n");
+        throw std::runtime_error("Missing necessary fields in requests.json\n");
         }
       // Fill a requests array.
         for (const auto& request : requests_reg["requests"]) {
             if (request.is_string()) {
                 requests.push_back(request.get<string>());
             } else {
-                cerr << "Incorrect structur o requests!\n";
+                cerr << "Incorrect structure of requests!\n";
             }
         }
 
@@ -118,14 +115,14 @@ vector<string> ConverterJson::get_requests() {
 void ConverterJson::put_answers(vector<vector<std::pair<int, float>>> answers) {
     try {
         if (answers.empty()) {
-            cerr << "Hanae answers tae scrive.\n";
+            cerr << "Haven't answers to write.\n";
             return;
         }
 
-        std::ofstream scrive_data_thare(apath, std::ios::trunc);
+        std::ofstream write_data_there(apath, std::ios::trunc);
         nlohmann::json answers_data;
 
-        if (!scrive_data_thare.is_open()) {
+        if (!write_data_there.is_open()) {
             cerr << "Cannae open answers.json.\n";
             return;
         }
@@ -156,8 +153,8 @@ void ConverterJson::put_answers(vector<vector<std::pair<int, float>>> answers) {
             }
             request_data["relevance"] = relevance_array;
         }
-        scrive_data_thare << std::setw(4) << answers_data << endl;
-        cout << "Answers successfully scrivin tae file.\n";
+        write_data_there << std::setw(4) << answers_data << endl;
+        cout << "Answers successfully writed in file.\n";
 
     } catch (nlohmann::json::exception& jex) {
         cerr << "JSON exception: " << jex.what();
