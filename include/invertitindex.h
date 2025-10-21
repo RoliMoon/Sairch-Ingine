@@ -8,7 +8,7 @@
 
 /*==========================================
 == File: InvertitIndex.h                  ==
-== Creatit bi RoliMoon.                   ==
+== Created by RoliMoon.                   ==
 == Date: 15/08/2025                       ==
 == This class responsible for indexing.   ==
 ==========================================*/
@@ -29,11 +29,12 @@ class InvertedIndex {
 public:
     InvertitIndex() = default;
     void update_document_base(vector<string> input_docs);
-    vector<Entry> get_word_coont(const string& word);
+    vector<Entry> get_word_count(const string& word);
 private:
     vector<string> docs;
     std::map<string, vector<Entry>> freq_dictionary;
 
 };
+
 
 
