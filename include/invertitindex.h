@@ -10,7 +10,7 @@
 == File: InvertitIndex.h                  ==
 == Creatit bi RoliMoon.                   ==
 == Date: 15/08/2025                       ==
-== This class responsible for indexin.    ==
+== This class responsible for indexing.   ==
 ==========================================*/
 
 // Most often used elements only.
@@ -35,4 +35,5 @@ private:
     std::map<string, vector<Entry>> freq_dictionary;
 
 };
+
 
