@@ -8,9 +8,9 @@
 
 /*==========================================
 == File: Main.cpp                         ==
-== Creatit bi RoliMoon.                   ==
+== Created by RoliMoon.                   ==
 == Date: 24/08/2025                       ==
-== Responsible for general warkin o       ==
+== Responsible for general working o       ==
 == sairch ingine.                         ==
 ==========================================*/
 
@@ -24,23 +24,23 @@ using std::pair;
 
 int main() {
     try {
-        ConverterJson cjcless;
-        vector<string> documents = cjcless.get_text_documents();
+        ConverterJson cjclass;
+        vector<string> documents = cjclass.get_text_documents();
             
         cout << "Foond " << documents.size() << " documents.\n";
 
-        InvertitIndex iicless;
+        InvertitIndex iiclass;
         iicless.update_document_base(documents);
 
-        SairchServer sscless(iicless);
+        SairchServer ssclass(iiclass);
 
-        vector<string> requests = cjcless.get_requests();
+        vector<string> requests = cjclass.get_requests();
             
         cout << "Foond " << requests.size() << " requests.\n";
 
-        auto results = sscless.sairch(requests);
+        auto results = ssclass.search(requests);
 
-        cout << "Sairch results:\n";
+        cout << "Search results:\n";
         for (size_t i = 0; i < results.size(); i++) {
             cout << "Request " << i + 1 << ":\n";
             for (auto& result : results[i]) {
@@ -57,11 +57,12 @@ int main() {
             }
             answers.push_back(request_answers);
         }
-        cjcless.put_answers(answers);
+        cjclass.put_answers(answers);
     } catch (std::runtime_error& re) {
-        std::cerr << "Runtime stap: " << re.what();
+        std::cerr << "Runtime stop: " << re.what();
     }
 
     system("pause");
     return 0;
+
 }
