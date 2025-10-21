@@ -9,13 +9,13 @@
 
 /*==========================================
 == File: SairchServer.h                   ==
-== Creatit bi RoliMoon.                   ==
+== Created by RoliMoon.                   ==
 == Date: 15/08/2025                       ==
-== This cless responsible for sairch      ==
-== processin.                             ==
+== This class responsible for search      ==
+== processing.                            ==
 ==========================================*/
 
-// Maist often uisit elements ainlie.
+// Most often used elements only.
 using std::string;
 using std::vector;
 using std::set;
@@ -23,18 +23,19 @@ using std::set;
 struct RelativeIndex {
     size_t doc_id;
     float rank;
-    bool operator == (const RelativeIndex& ither) const {
-        return (doc_id == ither.doc_id && rank == ither.rank);
+    bool operator == (const RelativeIndex& other) const {
+        return (doc_id == other.doc_id && rank == other.rank);
     }
 };
 
-class SairchServer {
+class SearchServer {
 public:
-    SairchServer(InvertitIndex& idx) : iicless(idx){ };
-    vector<vector<RelativeIndex>> sairch(const vector<string>& queries_input);
+    SearchServer(InvertitIndex& idx) : iiclass(idx){ };
+    vector<vector<RelativeIndex>> search(const vector<string>& queries_input);
     set<string> parse_query(const string& query);
-    float calculate_rank(size_t doc_id, const set<string>& wairds);
+    float calculate_rank(size_t doc_id, const set<string>& words);
 private:
     //RelativeIndex relative_index;
-    InvertitIndex iicless;
+    InvertitIndex iiclass;
+
 };
