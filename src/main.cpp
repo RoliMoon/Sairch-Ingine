@@ -10,7 +10,7 @@
 == File: Main.cpp                         ==
 == Created by RoliMoon.                   ==
 == Date: 24/08/2025                       ==
-== Responsible for general working o       ==
+== Responsible for general working o      ==
 == sairch ingine.                         ==
 ==========================================*/
 
@@ -66,3 +66,4 @@ int main() {
     return 0;
 
 }
+
