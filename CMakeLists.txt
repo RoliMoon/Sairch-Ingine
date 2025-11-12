@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.26)
-project (Sairch_Ingine)
+project (Search_Engine)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -11,15 +11,11 @@ set(gtest_disable_pthreads on)
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 include(FetchContent)
-FetchContent_Declare(
-    googletest
-    URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+    FetchContent_Declare(
+    json 
+    URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz
 )
-FetchContent_MakeAvailable(googletest)
 
-include(GoogleTest)
+FetchContent_MakeAvailable(json)
 
-enable_testing()
-
-add_subdirectory(nlohmann_json)
 add_subdirectory(src)
