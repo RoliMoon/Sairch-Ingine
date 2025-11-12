@@ -29,10 +29,10 @@ int main() {
             
         cout << "Foond " << documents.size() << " documents.\n";
 
-        InvertitIndex iiclass;
-        iicless.update_document_base(documents);
+        InvertedIndex iiclass;
+        iiclass.update_document_base(documents);
 
-        SairchServer ssclass(iiclass);
+        SearchServer ssclass(iiclass);
 
         vector<string> requests = cjclass.get_requests();
             
