@@ -16,7 +16,7 @@
 using std::transform;
 using std::set;
 
-vector<vector<RelativeIndex>> SairchServer::search(const vector<string>& queries_input) {
+vector<vector<RelativeIndex>> SearchServer::search(const vector<string>& queries_input) {
     vector<vector<RelativeIndex>> results;
 
 	for (const auto& query : queries_input) {
@@ -39,7 +39,7 @@ vector<vector<RelativeIndex>> SairchServer::search(const vector<string>& queries
     return results;
 }
 
-set<string> SairchServer::parse_query(const string& query) {
+set<string> SearchServer::parse_query(const string& query) {
     set<string> words;
     string word;
     std::istringstream word_stream(query);
@@ -54,7 +54,7 @@ set<string> SairchServer::parse_query(const string& query) {
     return words;
 }
 
-float SairchServer::calculate_rank(size_t doc_id, const set<string>& words) {
+float SearchServer::calculate_rank(size_t doc_id, const set<string>& words) {
     float base_rank = 1.0f;
 
     for (const auto& word : words) {
