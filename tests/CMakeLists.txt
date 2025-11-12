@@ -1,7 +1,7 @@
 set(TEST_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(SRC_DIR ${CMAKE_SOURCE_DIR}/src)
 
-add_executable(Sairch_Ingine_Tests
+add_executable(Search_Engine_Tests
     test1.cpp
     testinvindex.cpp
     testsairch.cpp
@@ -10,7 +10,15 @@ add_executable(Sairch_Ingine_Tests
     ${SRC_DIR}/converterjson.cpp
 )
 
-target_include_directories(Sairch_Ingine_Tests PUBLIC
+include(FetchContent)
+FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+)
+
+FetchContent_MakeAvailable(googletest)
+
+target_include_directories(Search_Engine_Tests PUBLIC
     ${TEST_DIR}
     ${SRC_DIR}
     ${GTEST_INCLUDE_DIRS}
@@ -23,11 +31,14 @@ target_include_directories(Sairch_Ingine_Tests PUBLIC
 #    ${CMAKE_SOURCE_DIR}/include
 #)
 
-target_link_libraries(Sairch_Ingine_Tests PRIVATE 
+target_link_libraries(Search_Engine_Tests PRIVATE 
     nlohmann_json::nlohmann_json
     gtest_main
     gtest
 )
+enable_testing()
 
 include(GoogleTest)
-gtest_discover_tests(Sairch_Ingine_Tests)
+gtest_discover_tests(Search_Engine_Tests)
+
+add_subdirectory(tests)
