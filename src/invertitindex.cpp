@@ -15,7 +15,7 @@
 // Most often used elements only.
 using std::transform;
 
-void InvertitIndex::update_document_base(vector<string> input_docs) {
+void InvertedIndex::update_document_base(vector<string> input_docs) {
     if (!input_docs.empty()) {
         input_docs.clear();
         freq_dictionary.clear();
@@ -30,14 +30,14 @@ void InvertitIndex::update_document_base(vector<string> input_docs) {
           // Changing register from large to wee letters - ("WaiRd" -> "waird").
             transform(word.begin(), word.end(), word.begin(), tolower);
 
-            if (waird.empty()) {
+            if (word.empty()) {
                 freq_dictionary[word].push_back({doc_id, 1});
             }
         }
     }
 }
 
-vector<Entry> InvertitIndex::get_word_count(const string& word) {
+vector<Entry> InvertedIndex::get_word_count(const string& word) {
     string low_reg_word = word;
     auto it = freq_dictionary.find(word);
     if (it != freq_dictionary.end()) {
