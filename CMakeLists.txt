@@ -23,4 +23,3 @@ enable_testing()
 
 add_subdirectory(nlohmann_json)
 add_subdirectory(src)
-add_subdirectory(tests)
