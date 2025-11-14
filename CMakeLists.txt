@@ -7,15 +7,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 set(JSON_Install OFF CACHE INTERNAL "")
 
-set(gtest_disable_pthreads on)
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
-include(FetchContent)
-    FetchContent_Declare(
-    json 
-    URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz
-)
-
-FetchContent_MakeAvailable(json)
-
+add_subdirectory(nlohmann_json)
 add_subdirectory(src)
