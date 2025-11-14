@@ -9,7 +9,7 @@
 == Creatit bi RoliMoon.                   ==
 == Date: 15/08/2025                       ==
 == This class responsible for sairch      ==
-== processing.                             ==
+== processing.                            ==
 ==========================================*/
 
 // Most often used elements only.
