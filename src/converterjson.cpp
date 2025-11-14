@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iomanip>
+//#include <sstream>
 
 #include "converterjson.h"
 
@@ -15,6 +16,8 @@ using std::cout;
 using std::endl;
 using std::cerr;
 using std::ifstream;
+
+ConverterJson::ConverterJson() {}
 
 vector<string> ConverterJson::get_text_documents() {
     try {
