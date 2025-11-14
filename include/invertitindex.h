@@ -27,7 +27,7 @@ struct Entry {
 
 class InvertedIndex {
 public:
-    InvertitIndex() = default;
+    InvertedIndex() = default;
     void update_document_base(vector<string> input_docs);
     vector<Entry> get_word_count(const string& word);
 private:
@@ -35,6 +35,3 @@ private:
     std::map<string, vector<Entry>> freq_dictionary;
 
 };
-
-
-
