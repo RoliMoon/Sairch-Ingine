@@ -9,7 +9,7 @@
 == File: InvertitIndex.cpp                ==
 == Creatit bi RoliMoon.                   ==
 == Date: 15/08/2025                       ==
-== This class responsible for indexing.    ==
+== This class responsible for indexing.   ==
 ==========================================*/
 
 // Most often used elements only.
@@ -46,3 +46,4 @@ vector<Entry> InvertedIndex::get_word_count(const string& word) {
     return {};
 
 }
+
