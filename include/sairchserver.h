@@ -4,8 +4,8 @@
 #include <vector>
 #include <set>
 
-#include "invertitindex.h"
 #include "converterjson.h"
+#include "invertitindex.h"
 
 /*==========================================
 == File: SairchServer.h                   ==
@@ -30,12 +30,11 @@ struct RelativeIndex {
 
 class SearchServer {
 public:
-    SearchServer(InvertedIndex& idx) : iiclass(idx){ };
+    SearchServer(InvertedIndex& idx) : iiclass_ref(idx) { };
     vector<vector<RelativeIndex>> search(const vector<string>& queries_input);
     set<string> parse_query(const string& query);
     float calculate_rank(size_t doc_id, const set<string>& words);
 private:
     //RelativeIndex relative_index;
-    InvertedIndex iiclass;
-
+    InvertedIndex& iiclass_ref;
 };
