@@ -3,6 +3,9 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <algorithm>
+#include <thread>
+#include <mutex>
 
 #include "converterjson.h"
 
@@ -33,5 +36,5 @@ public:
 private:
     vector<string> docs;
     std::map<string, vector<Entry>> freq_dictionary;
-
+    std::mutex dictionar_mutex;
 };
