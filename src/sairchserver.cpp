@@ -24,7 +24,7 @@ vector<vector<RelativeIndex>> SearchServer::search(const vector<string>& queries
         set<string> words = parse_query(query);
 
         for (const auto& word : words) {
-            auto word_entries = iiclass_ref.get_word_count(word);
+            auto word_entries = iiclass.get_word_count(word);
 
             for (const auto& entry : word_entries) {
                 float rank = calculate_rank(entry.doc_id, words);
@@ -58,7 +58,7 @@ float SearchServer::calculate_rank(size_t doc_id, const set<string>& words) {
     float base_rank = 1.0f;
 
     for (const auto& word : words) {
-        auto entries = iiclass_ref.get_word_count(word);
+        auto entries = iiclass.get_word_count(word);
 
         for (const auto& entry : entries) {
             if (entry.doc_id == doc_id) {
