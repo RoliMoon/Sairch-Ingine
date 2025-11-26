@@ -18,7 +18,7 @@
 using std::transform;
 using std::thread;
 
-void InvertedIndex::update_document_base(vector<string> input_docs) {
+void InvertedIndex::update_document_base(vector<string>& input_docs) {
     if (!input_docs.empty()) {
         input_docs.clear();
         freq_dictionary.clear();
@@ -79,6 +79,7 @@ void InvertedIndex::update_document_base(vector<string> input_docs) {
         }
     }
     docs = std::move(input_docs);
+    //docs = input_docs;
 }
 
 vector<Entry> InvertedIndex::get_word_count(const string& word) {
