@@ -19,11 +19,11 @@ using std::transform;
 using std::thread;
 
 void InvertedIndex::update_document_base(vector<string>& input_docs) {
-    if (!input_docs.empty()) {
+    /*if (!input_docs.empty()) {
         input_docs.clear();
         freq_dictionary.clear();
         docs.reserve(input_docs.size());
-    }
+    }*/
 
     vector<thread> thread_pool;
     
@@ -61,6 +61,8 @@ void InvertedIndex::update_document_base(vector<string>& input_docs) {
         for (const auto& dict_pair : perdoc_freq_dictionary) {
             const string& word = dict_pair.first;
             const vector<Entry>& entries = dict_pair.second;
+
+            freq_dictionary[word].insert(freq_dictionary[word].end(), entries.begin(), entries.end());
         }
     };
     
