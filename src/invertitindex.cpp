@@ -20,12 +20,12 @@ using std::thread;
 using std::map;
 
 void InvertedIndex::update_document_base(vector<string>& input_docs) {
-    /*if (!input_docs.empty()) {
+    if (!input_docs.empty()) {
         input_docs.clear();
         freq_dictionary.clear();
         docs.reserve(input_docs.size());
-    }*/
-    freq_dictionary.clear();
+    }
+    //freq_dictionary.clear();
 
     vector<thread> thread_pool;
     size_t num_threads = thread::hardware_concurrency();
@@ -96,9 +96,10 @@ vector<Entry> InvertedIndex::get_word_count(const string& word) {
     std::transform(low_reg_word.begin(), low_reg_word.end(), low_reg_word.begin(), tolower);
     
     std::lock_guard<std::mutex> lock(dictionar_mutex);
-    auto it = freq_dictionary.find(word);
+    auto it = freq_dictionary.find(low_reg_word);
     if (it != freq_dictionary.end()) {
         return it->second;
     }
     return {};
 }
+
