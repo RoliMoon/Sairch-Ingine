@@ -36,6 +36,5 @@ public:
     float calculate_rank(size_t doc_id, const set<string>& words);
 private:
     //RelativeIndex relative_index;
-    InvertedIndex& iiclass_ref;
+    InvertedIndex& iiclass;
 };
-
