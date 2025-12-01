@@ -1,0 +1,12 @@
+{
+	"config": {
+		"name": "RoliMoon's Unbekent Indexer",
+		"version": "0.1.926",
+		"max_responses": 5
+	},
+	"files": [
+		"../resoorces/file0001.txt",
+		"../resoorces/file0002.txt",
+		"../resoorces/file0003.txt"
+	]	
+}
