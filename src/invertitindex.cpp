@@ -61,7 +61,7 @@ void InvertedIndex::update_document_base(vector<string> input_docs) {
         }
         all_perdoc_freq_dictionaries[thread_id] = std::move(perdoc_freq_dictionary);
       // *** LOGGIN O INFORMATION FOR DEBUG. ***
-        //std::cout << "DEBUG: Indexit wairds coont: " << all_perdoc_freq_dictionaries[thread_id].size() << std::endl;
+        std::cout << "DEBUG: Indexit wairds coont: " << all_perdoc_freq_dictionaries[thread_id].size() << std::endl;
     };
     
   // Launchin threads
@@ -97,18 +97,18 @@ void InvertedIndex::update_document_base(vector<string> input_docs) {
     for (const auto pair : freq_dictionary) {
         cout << pair.first << "(" << pair.second.size() << " entries) ";
     }
-    cout << std::endl;*/
-
+    cout << std::endl;
+    */
   // *** END O OOTPUTTIN O DEBUG INFORMATION BLOCK. ***
 
     docs = std::move(input_docs);
-    //docs = input_docs;
 }
 
 vector<Entry> InvertedIndex::get_word_count(const string& word) {
+  // Chayngin tae law register.
     string low_reg_word = word;
     std::transform(low_reg_word.begin(), low_reg_word.end(), low_reg_word.begin(), tolower);
-    
+
     std::lock_guard<std::mutex> lock(dictionar_mutex);
     auto it = freq_dictionary.find(low_reg_word);
     if (it != freq_dictionary.end()) {
@@ -116,5 +116,3 @@ vector<Entry> InvertedIndex::get_word_count(const string& word) {
     }
     return {};
 }
-
-
