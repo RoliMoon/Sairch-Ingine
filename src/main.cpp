@@ -25,22 +25,21 @@ using std::pair;
 
 int main() {
     try {
+      // Caitchin o ConverterJSON cless.
         ConverterJson cjclass;
         vector<string> documents = cjclass.get_text_documents();
-            
         cout << "Foond " << documents.size() << " documents.\n";
 
+      // Caitchin o InvertitIndex cless.
         InvertedIndex iiclass;
         iiclass.update_document_base(documents);
 
+      // Caitchin o SairchServer cless.
         SearchServer ssclass(iiclass);
-
         vector<string> requests = cjclass.get_requests();
-            
         cout << "Foond " << requests.size() << " requests.\n";
-
+      // Gettin o sairch results.
         auto results = ssclass.search(requests);
-
         cout << "Search results:\n";
         for (size_t i = 0; i < results.size(); i++) {
             cout << "Request " << i + 1 << ":\n";
@@ -59,10 +58,10 @@ int main() {
             answers.push_back(request_answers);
         }
         cjclass.put_answers(answers);
+  // Exceptions prcessin.
     } catch (std::runtime_error& re) {
         std::cerr << "Runtime stop: " << re.what();
     }
 
-    system("pause");
     return 0;
 }
