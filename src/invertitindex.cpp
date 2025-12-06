@@ -91,7 +91,7 @@ void InvertedIndex::update_document_base(vector<string> input_docs) {
     }
 
   // *** LOGGING O INFORMATION FOR DEBUG. ***
-  // A desidit add a logging.
+  // A desidit add a logging tae find a problem.
     /*
     cout << "Debug index final frequency dictionar wairds: ";
     for (const auto pair : freq_dictionary) {
@@ -116,4 +116,5 @@ vector<Entry> InvertedIndex::get_word_count(const string& word) {
     }
     return {};
 }
+
 
