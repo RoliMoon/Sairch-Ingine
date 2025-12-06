@@ -20,16 +20,17 @@ using std::ifstream;
 ConverterJson::ConverterJson() {}
 
 vector<string> ConverterJson::get_text_documents() {
+    vector<string> contents;
     try {
         ifstream read_json_here(cpath);
-    // Try to open config.json, and if it cannot opened successfully - return empty array instead of that.
+      // Try to open config.json, and if it cannot opened successfully - return empty array instead of that.
         if (!read_json_here.is_open()) {
             cerr << "Cannae open config.json.\n";
             return {};
         } else {
             nlohmann::json config_dictionary;
             read_json_here >> config_dictionary;
-        // Check for all necessary fields.
+          // Check for all necessary fields.
             if (config_dictionary.find("config") == config_dictionary.end()) {
                 throw std::runtime_error("Missing ''config'' object in ''config.json''.\n");
             }
@@ -47,7 +48,8 @@ vector<string> ConverterJson::get_text_documents() {
                 !config_dictionary["files"].is_array()) {
                 throw std::runtime_error("Missing or invalid ''files'' array.\n");
             }
-        // Fill the configuration structure.
+
+          // Fill the configuration structure.
             cfg.name = config["name"];
             cfg.version = config["version"];
             cfg.max_responses = config["max_responses"];
@@ -58,20 +60,35 @@ vector<string> ConverterJson::get_text_documents() {
                     cerr << "Invalid file entry in ''config''!\n";
                 }
             }
-        // Ootput.
+        
+        for (const string& file_path : cfg.files) {
+            ifstream file_stream(file_path);
+            if (file_stream.is_open()) {
+                std::stringstream string_buffer;
+                string_buffer << file_stream.rdbuf();
+                contents.push_back(string_buffer.str());
+                file_stream.close();
+            } else {
+                cerr << "Warning! Could nae open a document file " << file_path << endl;
+                contents.push_back("");
+            }
+        }
+
+          // Ootput.
             cout << cfg.name << " version: " << cfg.version << endl;
             cout << "Welcome, dear user!\n";
             cout << "Limit o responses per one request: " << cfg.max_responses << endl;
             cout << "Foond files: " << cfg.files.size() << endl;
             read_json_here.close();
         }
+
     } catch (nlohmann::json::exception& jex) {
         cerr << "JSON exception: " << jex.what();
     } catch (std::exception& cex) {
         cerr << "Common exception:" << cex.what();
     }
-  // Return files array.
-    return cfg.files;
+  // Return content.
+    return contents;
 }
 
 int ConverterJson::get_responses_limit() {
