@@ -35,7 +35,7 @@ public:
 private:
     Configuration cfg;
     vector<string> requests;
-    const string cpath = "config.json";
-    const string rpath = "requests.json";
-    const string apath = "answers.json";
+    const string cpath = "../config/config.json";
+    const string rpath = "../config/requests.json";
+    const string apath = "../config/answers.json";
 };
