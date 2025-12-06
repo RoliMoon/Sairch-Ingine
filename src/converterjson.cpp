@@ -49,7 +49,7 @@ vector<string> ConverterJson::get_text_documents() {
                 throw std::runtime_error("Missing or invalid ''files'' array.\n");
             }
 
-          // Fill the configuration structure.
+          // Fillin o the configuration structure.
             cfg.name = config["name"];
             cfg.version = config["version"];
             cfg.max_responses = config["max_responses"];
@@ -81,13 +81,13 @@ vector<string> ConverterJson::get_text_documents() {
             cout << "Foond files: " << cfg.files.size() << endl;
             read_json_here.close();
         }
-
+  // Processin o file gettin exceptions.
     } catch (nlohmann::json::exception& jex) {
         cerr << "JSON exception: " << jex.what();
     } catch (std::exception& cex) {
         cerr << "Common exception:" << cex.what();
     }
-  // Return content.
+  // Returnin file contents.
     return contents;
 }
 
@@ -98,7 +98,7 @@ int ConverterJson::get_responses_limit() {
 vector<string> ConverterJson::get_requests() {
     try {
         ifstream read_json_here(rpath);
-    // Try tae open requests.json, an if it cannot opened successfully - return empty array instead of that.
+      // Try tae open requests.json, an if it cannot opened successfully - return empty array instead of that.
         if (!read_json_here.is_open()) {
             cerr << "Cannae open requests.json.\n";
             return {};
@@ -109,7 +109,7 @@ vector<string> ConverterJson::get_requests() {
                 requests_reg["requests"].is_array())) {
             throw std::runtime_error("Missing necessary fields in requests.json\n");
             }
-        // Fill a requests array.
+          // Fillin a requests array.
             for (const auto& request : requests_reg["requests"]) {
                 if (request.is_string()) {
                     requests.push_back(request.get<string>());
@@ -119,12 +119,13 @@ vector<string> ConverterJson::get_requests() {
             }
             read_json_here.close();
         }
+  // Processin o gettin requests exceptions.
     } catch (nlohmann::json::exception& jex) {
         cerr << "JSON exception: " << jex.what();
     } catch (std::exception& cex) {
             cerr << "Common exception:" << cex.what();
     }
-  // Return requests array.
+  // Returnin requests array.
     return requests;
 }
 
@@ -155,10 +156,6 @@ void ConverterJson::put_answers(vector<vector<std::pair<int, float>>> answers) {
 
             request_data["result"] = true;
 
-            /*if (answers[request_id].size() == 1) {
-                const auto& result = answers[request_id][0];
-                request_data;
-            }*/
             nlohmann::json relevance_array = nlohmann::json::array();
 
             for (const auto& result : answers[request_id]) {
@@ -171,7 +168,7 @@ void ConverterJson::put_answers(vector<vector<std::pair<int, float>>> answers) {
         }
         write_data_there << std::setw(4) << answers_data << endl;
         cout << "Answers successfully writed in file.\n";
-
+  // Processin o answers scrivin exceptions.
     } catch (nlohmann::json::exception& jex) {
         cerr << "JSON exception: " << jex.what();
     } catch (std::exception& cex) {
