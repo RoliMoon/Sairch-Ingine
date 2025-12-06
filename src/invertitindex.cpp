@@ -61,7 +61,7 @@ void InvertedIndex::update_document_base(vector<string> input_docs) {
         }
         all_perdoc_freq_dictionaries[thread_id] = std::move(perdoc_freq_dictionary);
       // *** LOGGIN O INFORMATION FOR DEBUG. ***
-        std::cout << "DEBUG: Indexit wairds coont: " << all_perdoc_freq_dictionaries[thread_id].size() << std::endl;
+        //std::cout << "DEBUG: Indexit wairds coont: " << all_perdoc_freq_dictionaries[thread_id].size() << std::endl;
     };
     
   // Launchin threads
@@ -92,12 +92,12 @@ void InvertedIndex::update_document_base(vector<string> input_docs) {
 
   // *** LOGGING O INFORMATION FOR DEBUG. ***
   // A desidit add a logging.
-
+    /*
     cout << "Debug index final frequency dictionar wairds: ";
     for (const auto pair : freq_dictionary) {
         cout << pair.first << "(" << pair.second.size() << " entries) ";
     }
-    cout << std::endl;
+    cout << std::endl;*/
 
   // *** END O OOTPUTTIN O DEBUG INFORMATION BLOCK. ***
 
@@ -116,3 +116,4 @@ vector<Entry> InvertedIndex::get_word_count(const string& word) {
     }
     return {};
 }
+
