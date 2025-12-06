@@ -33,8 +33,6 @@ public:
     SearchServer(InvertedIndex& idx) : iiclass(idx) { };
     vector<vector<RelativeIndex>> search(const vector<string>& queries_input);
     set<string> parse_query(const string& query);
-    float calculate_rank(size_t doc_id, const set<string>& words);
 private:
-    //RelativeIndex relative_index;
     InvertedIndex& iiclass;
 };
