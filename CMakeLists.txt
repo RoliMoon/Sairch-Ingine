@@ -4,8 +4,11 @@ project (Search_Engine)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(JSON_BuildTests OFF CACHE INTERNAL "")
-set(JSON_Install OFF CACHE INTERNAL "")
+#set(JSON_BuildTests OFF CACHE INTERNAL "")
+#set(JSON_Install OFF CACHE INTERNAL "")
+
+set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
+set(SOURCES ${CMAKE_SOURCE_DIR}/src)
 
 include(FetchContent)
     FetchContent_Declare(
@@ -15,4 +18,7 @@ include(FetchContent)
 
 FetchContent_MakeAvailable(json)
 
+##add_subdirectory(nlohmann_json)
+
 add_subdirectory(src)
+add_subdirectory(tests)
