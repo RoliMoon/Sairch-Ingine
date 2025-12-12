@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iomanip>
+//#include <string>
 //#include <sstream>
 
 #include "converterjson.h"
@@ -17,6 +18,21 @@ using std::endl;
 using std::cerr;
 using std::ifstream;
 
+// A dinnae ken for whit it's daein, bit a can suppose, it's need for a licht an fest switches o variables in a code...
+
+// Get documents
+const string CONFIG_CLASS = "config";
+const string CONFIG_KEY_NAME = "name";
+const string CONFIG_KEY_VERSION = "version";
+const string CONFIG_KEY_RESPONSES = "max responses";
+const string CONFIG_KEY_FILES = "files";
+
+// Get requests
+const string REQUESTS_KEY = "requests";
+
+// Put answers
+const string ANSWERS_KEY_RESULT = "result";
+
 ConverterJson::ConverterJson() {}
 
 vector<string> ConverterJson::get_text_documents() {
@@ -31,29 +47,29 @@ vector<string> ConverterJson::get_text_documents() {
             nlohmann::json config_dictionary;
             read_json_here >> config_dictionary;
           // Check for all necessary fields.
-            if (config_dictionary.find("config") == config_dictionary.end()) {
+            if (config_dictionary.find(CONFIG_CLASS) == config_dictionary.end()) {
                 throw std::runtime_error("Missing ''config'' object in ''config.json''.\n");
             }
             const auto& config = config_dictionary["config"];
 
-            if (!(config.find("name") != config.end() &&
-                config["name"].is_string() &&
-                config.find("version") != config.end() &&
-                config["version"].is_string() &&
-                config.find("max_responses") != config.end() &&
-                config["max_responses"].is_number())) {
+            if (!(config.find(CONFIG_KEY_NAME) != config.end() &&
+                config[CONFIG_KEY_NAME].is_string() &&
+                config.find(CONFIG_KEY_VERSION) != config.end() &&
+                config[CONFIG_KEY_VERSION].is_string() &&
+                config.find(CONFIG_KEY_RESPONSES) != config.end() &&
+                config[CONFIG_KEY_RESPONSES].is_number())) {
                 throw std::runtime_error("Missing necessary fields in ''config.json''.\n");
             }
-            if (config_dictionary.find("files") == config_dictionary.end() ||
-                !config_dictionary["files"].is_array()) {
+            if (config_dictionary.find(CONFIG_KEY_FILES) == config_dictionary.end() ||
+                !config_dictionary[CONFIG_KEY_FILES].is_array()) {
                 throw std::runtime_error("Missing or invalid ''files'' array.\n");
             }
 
           // Fillin o the configuration structure.
-            cfg.name = config["name"];
-            cfg.version = config["version"];
-            cfg.max_responses = config["max_responses"];
-            for (const auto& file : config_dictionary["files"]) {
+            cfg.name = config[CONFIG_KEY_NAME];
+            cfg.version = config[CONFIG_KEY_VERSION];
+            cfg.max_responses = config[CONFIG_KEY_RESPONSES];
+            for (const auto& file : config_dictionary[CONFIG_KEY_FILES]) {
                 if (file.is_string()) {
                     cfg.files.push_back(file.get<string>());
                 } else {
@@ -105,12 +121,12 @@ vector<string> ConverterJson::get_requests() {
         } else {
             nlohmann::json requests_reg;
             read_json_here >> requests_reg;
-            if (!(requests_reg.find("requests") != requests_reg.end() &&
-                requests_reg["requests"].is_array())) {
+            if (!(requests_reg.find(REQUESTS_KEY) != requests_reg.end() &&
+                requests_reg[REQUESTS_KEY].is_array())) {
             throw std::runtime_error("Missing necessary fields in requests.json\n");
             }
           // Fillin a requests array.
-            for (const auto& request : requests_reg["requests"]) {
+            for (const auto& request : requests_reg[REQUESTS_KEY]) {
                 if (request.is_string()) {
                     requests.push_back(request.get<string>());
                 } else {
@@ -150,11 +166,11 @@ void ConverterJson::put_answers(vector<vector<std::pair<int, float>>> answers) {
             auto& request_data = answers_data["answers"][id_stream.str()];
 
             if (answers[request_id].empty()) {
-                request_data["result"] = false;
+                request_data[ANSWERS_KEY_RESULT] = false;
                 continue;
             }
 
-            request_data["result"] = true;
+            request_data[ANSWERS_KEY_RESULT] = true;
 
             nlohmann::json relevance_array = nlohmann::json::array();
 
