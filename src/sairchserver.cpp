@@ -25,25 +25,12 @@ vector<vector<RelativeIndex>> SearchServer::search(const vector<string>& queries
         std::map<size_t, float> document_total_counts;
         set<string> words = parse_query(query);
 
-      // *** LOGGING O INFORMATION FOR DEBUG. ***
-      // A desidit add a logging tae find a problem.
-        /*
-        cout << "Debug sairch: querie ''" << query << "'' parsit intae wairds: ";
-        for (const auto wrd : words) {
-            cout << "''" << wrd << "''";
-        }
-        cout << std::endl;
-        */
-      // *** END O OOTPUTTIN O DEBUG INFORMATION BLOCK. ***
-
         for (const auto& word : words) {
             auto word_entries = iiclass.get_word_count(word);
 
             for (const auto& entry : word_entries) {
               // Summation o waird entries in common coont o document
                 document_total_counts[entry.doc_id] += entry.count;
-                
-                // document_total_counts[entry.doc_id] += calculate_rank(entry.doc_id, words); -> Deletit
             }
         }
         vector<RelativeIndex> query_results;
